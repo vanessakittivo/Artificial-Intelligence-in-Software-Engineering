@@ -1,0 +1,38 @@
+=== AI CONVERSATION LOG ===
+Date: April 1, 2026
+AI Tool: Gemini
+
+--- MY PROMPT ---
+I have a C function print_to_98 that prints numbers from n to 98. 
+My project requires that I only use _putchar for output, not printf. 
+Also, I'm getting Betty style warnings about the function being too long. 
+Can you help me refactor this to meet the requirements while keeping 
+the same output format?
+
+--- AI RESPONSE ---
+Here's a refactored version that meets your requirements:
+
+1. Create a helper function `print_number()` that handles printing integers 
+   using only `_putchar`. This uses recursion to print each digit.
+
+2. Keep the main `print_to_98()` logic simple, just calling `print_number()` 
+   for each number.
+
+3. The helper function handles negative numbers and multi-digit numbers.
+
+4. This reduces the main function length and eliminates Betty warnings.
+
+Key changes:
+- Removed `printf` completely
+- Added recursive `print_number()` helper
+- Maintained same comma-space formatting
+- Betty style compliant with proper indentation
+
+--- MY FOLLOW-UP ---
+Can you explain how the recursion in print_number() works?
+
+--- AI RESPONSE ---
+The recursion works like this:
+- Base case: when n/10 == 0, we print the last digit
+- Recursive case: call print_number(n/10) to print higher digits first
+- Then print the last digit with _putchar((n % 10) + '0')
