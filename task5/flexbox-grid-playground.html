@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox and Grid Playground</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        .playground {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .controls {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .control {
+            margin: 12px 0;
+        }
+
+        .control label {
+            display: inline-block;
+            width: 190px;
+            font-weight: bold;
+        }
+
+        select {
+            padding: 8px;
+            font-size: 14px;
+            min-width: 180px;
+        }
+
+        .container {
+            min-height: 400px;
+            padding: 20px;
+            background: #ddd;
+            border: 2px solid #999;
+            gap: 15px;
+        }
+
+        .item {
+            background: #87ceeb;
+            border: 2px solid #333;
+            padding: 25px;
+            text-align: center;
+            font-weight: bold;
+            min-width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="playground">
+        <h1>Flexbox and Grid Playground</h1>
+
+        <div class="controls">
+            <div class="control">
+                <label for="display">Display:</label>
+                <select id="display">
+                    <option value="block">block</option>
+                    <option value="flex">flex</option>
+                    <option value="grid">grid</option>
+                </select>
+            </div>
+
+            <div class="control">
+                <label for="flexDirection">Flex Direction:</label>
+                <select id="flexDirection">
+                    <option value="row">row</option>
+                    <option value="column">column</option>
+                </select>
+            </div>
+
+            <div class="control">
+                <label for="justifyContent">Justify Content:</label>
+                <select id="justifyContent">
+                    <option value="flex-start">flex-start</option>
+                    <option value="center">center</option>
+                    <option value="flex-end">flex-end</option>
+                    <option value="space-between">space-between</option>
+                    <option value="space-around">space-around</option>
+                    <option value="space-evenly">space-evenly</option>
+                </select>
+            </div>
+
+            <div class="control">
+                <label for="alignItems">Align Items:</label>
+                <select id="alignItems">
+                    <option value="stretch">stretch</option>
+                    <option value="flex-start">flex-start</option>
+                    <option value="center">center</option>
+                    <option value="flex-end">flex-end</option>
+                </select>
+            </div>
+
+            <div class="control">
+                <label for="gridColumns">Grid Columns:</label>
+                <select id="gridColumns">
+                    <option value="1fr 1fr">1fr 1fr</option>
+                    <option value="1fr 1fr 1fr">1fr 1fr 1fr</option>
+                    <option value="1fr 1fr 1fr 1fr">1fr 1fr 1fr 1fr</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="container" id="container">
+            <div class="item">Item 1</div>
+            <div class="item">Item 2</div>
+            <div class="item">Item 3</div>
+            <div class="item">Item 4</div>
+            <div class="item">Item 5</div>
+        </div>
+    </div>
+
+    <script>
+        const container = document.getElementById("container");
+
+        document.getElementById("display").addEventListener("change", function () {
+            container.style.display = this.value;
+        });
+
+        document.getElementById("flexDirection").addEventListener("change", function () {
+            container.style.flexDirection = this.value;
+        });
+
+        document.getElementById("justifyContent").addEventListener("change", function () {
+            container.style.justifyContent = this.value;
+        });
+
+        document.getElementById("alignItems").addEventListener("change", function () {
+            container.style.alignItems = this.value;
+        });
+
+        document.getElementById("gridColumns").addEventListener("change", function () {
+            container.style.gridTemplateColumns = this.value;
+        });
+    </script>
+</body>
+</html>

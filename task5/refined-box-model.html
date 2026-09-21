@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model Lab</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .lab {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .controls {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+        }
+
+        .control-group h3 {
+            margin-bottom: 8px;
+        }
+
+        .control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 6px 0;
+        }
+
+        .control label {
+            width: 110px;
+        }
+
+        .control input[type="range"] {
+            flex: 1;
+        }
+
+        .value {
+            width: 55px;
+            font-weight: bold;
+        }
+
+        select {
+            padding: 6px;
+            font-size: 14px;
+        }
+
+        .stage {
+            background: #ddd;
+            padding: 30px;
+            min-height: 350px;
+            overflow: auto;
+        }
+
+        .box {
+            width: 200px;
+            min-height: 120px;
+            background: #87ceeb;
+            background-clip: content-box;
+            border: 10px solid #333;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 0;
+            color: #111;
+            display: block;
+        }
+
+        .box-label {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .box2 {
+            width: 200px;
+            min-height: 120px;
+            background: #f5b7b1;
+            border: 3px solid #555;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .legend {
+            margin-top: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .legend span {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .content-color {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background: #87ceeb;
+        }
+
+        .padding-color {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background: #b8e0f0;
+        }
+
+        .margin-color {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background: #ddd;
+        }
+
+        .border-color {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="lab">
+        <h1>CSS Box Model Interactive Lab</h1>
+
+        <div class="controls">
+            <h2>Box 1 Controls</h2>
+
+            <div class="control-group">
+                <h3>Margin</h3>
+
+                <div class="control">
+                    <label for="marginTop">Top</label>
+                    <input id="marginTop" type="range" min="0" max="100" value="20">
+                    <span class="value" id="marginTopValue">20px</span>
+                </div>
+
+                <div class="control">
+                    <label for="marginRight">Right</label>
+                    <input id="marginRight" type="range" min="0" max="100" value="20">
+                    <span class="value" id="marginRightValue">20px</span>
+                </div>
+
+                <div class="control">
+                    <label for="marginBottom">Bottom</label>
+                    <input id="marginBottom" type="range" min="0" max="100" value="20">
+                    <span class="value" id="marginBottomValue">20px</span>
+                </div>
+
+                <div class="control">
+                    <label for="marginLeft">Left</label>
+                    <input id="marginLeft" type="range" min="0" max="100" value="20">
+                    <span class="value" id="marginLeftValue">20px</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h3>Padding</h3>
+
+                <div class="control">
+                    <label for="paddingTop">Top</label>
+                    <input id="paddingTop" type="range" min="0" max="100" value="20">
+                    <span class="value" id="paddingTopValue">20px</span>
+                </div>
+
+                <div class="control">
+                    <label for="paddingRight">Right</label>
+                    <input id="paddingRight" type="range" min="0" max="100" value="20">
+                    <span class="value" id="paddingRightValue">20px</span>
+                </div>
+
+                <div class="control">
+                    <label for="paddingBottom">Bottom</label>
+                    <input id="paddingBottom" type="range" min="0" max="100" value="20">
+                    <span class="value" id="paddingBottomValue">20px</span>
+                </div>
+
+                <div class="control">
+                    <label for="paddingLeft">Left</label>
+                    <input id="paddingLeft" type="range" min="0" max="100" value="20">
+                    <span class="value" id="paddingLeftValue">20px</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h3>Border Width</h3>
+
+                <div class="control">
+                    <label for="borderTop">Top</label>
+                    <input id="borderTop" type="range" min="0" max="30" value="10">
+                    <span class="value" id="borderTopValue">10px</span>
+                </div>
+
+                <div class="control">
+                    <label for="borderRight">Right</label>
+                    <input id="borderRight" type="range" min="0" max="30" value="10">
+                    <span class="value" id="borderRightValue">10px</span>
+                </div>
+
+                <div class="control">
+                    <label for="borderBottom">Bottom</label>
+                    <input id="borderBottom" type="range" min="0" max="30" value="10">
+                    <span class="value" id="borderBottomValue">10px</span>
+                </div>
+
+                <div class="control">
+                    <label for="borderLeft">Left</label>
+                    <input id="borderLeft" type="range" min="0" max="30" value="10">
+                    <span class="value" id="borderLeftValue">10px</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h3>Other Properties</h3>
+
+                <div class="control">
+                    <label for="width">Width</label>
+                    <input id="width" type="range" min="100" max="500" value="200">
+                    <span class="value" id="widthValue">200px</span>
+                </div>
+
+                <div class="control">
+                    <label for="radius">Radius</label>
+                    <input id="radius" type="range" min="0" max="50" value="0">
+                    <span class="value" id="radiusValue">0px</span>
+                </div>
+
+                <div class="control">
+                    <label for="display">Display</label>
+                    <select id="display">
+                        <option value="block">block</option>
+                        <option value="inline-block">inline-block</option>
+                        <option value="inline">inline</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="stage">
+            <div class="box" id="box1">
+                <div class="box-label">Box 1</div>
+            </div>
+
+            <div class="box2">
+                <div class="box-label">Box 2</div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <strong>Box Model:</strong>
+            <span><span class="content-color"></span> Content</span>
+            <span><span class="padding-color"></span> Padding</span>
+            <span><span class="border-color"></span> Border</span>
+            <span><span class="margin-color"></span> Margin</span>
+        </div>
+    </div>
+
+    <script>
+        const box = document.getElementById("box1");
+
+        const controls = [
+            "marginTop",
+            "marginRight",
+            "marginBottom",
+            "marginLeft",
+            "paddingTop",
+            "paddingRight",
+            "paddingBottom",
+            "paddingLeft",
+            "borderTop",
+            "borderRight",
+            "borderBottom",
+            "borderLeft",
+            "width",
+            "radius"
+        ];
+
+        controls.forEach(function (id) {
+            const slider = document.getElementById(id);
+            const value = document.getElementById(id + "Value");
+
+            slider.addEventListener("input", function () {
+                value.textContent = slider.value + "px";
+
+                if (id === "width") {
+                    box.style.width = slider.value + "px";
+                } else if (id === "radius") {
+                    box.style.borderRadius = slider.value + "px";
+                } else {
+                    const property = id
+                        .replace("Top", "-top")
+                        .replace("Right", "-right")
+                        .replace("Bottom", "-bottom")
+                        .replace("Left", "-left");
+
+                    let cssProperty;
+
+                    if (id.startsWith("margin")) {
+                        cssProperty = "margin" + property.substring(6);
+                    } else if (id.startsWith("padding")) {
+                        cssProperty = "padding" + property.substring(7);
+                    } else {
+                        cssProperty = "border" + property.substring(6) + "Width";
+                    }
+
+                    box.style[cssProperty] = slider.value + "px";
+                }
+            });
+        });
+
+        document.getElementById("display").addEventListener("change", function () {
+            box.style.display = this.value;
+        });
+    </script>
+</body>
+</html>
