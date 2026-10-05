@@ -48,7 +48,7 @@ and security still need deliberate attention.
 
 ## GitHub Repository Update
 
-**Add the link to the task folder in your AI coursework repository after the
-folder is pushed.** The repository URL was not included with the task, so this
-link remains to be filled in.
+The task files are in the `AI-SQL-to-ORM-Refactoring-and-Security-Analysis`
+folder in the AI coursework repository. Folder link:
+https://github.com/vanessakittivo/Artificial-Intelligence-in-Software-Engineering/tree/vanessa/sql-to-orm-task/AI-SQL-to-ORM-Refactoring-and-Security-Analysis
 
