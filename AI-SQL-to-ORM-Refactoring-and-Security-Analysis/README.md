@@ -8,8 +8,6 @@ refactor for the coursework task.
 - `initial_code.py` — parameterized `mysql.connector` starting example.
 - `refactored_code.py` — SQLAlchemy declarative `User` model and Create, Read,
   Update, and Delete functions, plus a simple runnable demonstration.
-- `submission_draft.md` — prompt and reflection draft to transfer into the
-  requested Google Doc.
 
 ## Run the ORM example
 
